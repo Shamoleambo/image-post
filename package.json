@@ -1,0 +1,19 @@
+{
+  "name": "picup",
+  "version": "1.0.0",
+  "description": "Server side app that to create image posts",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Shamoleambo/image-post.git"
+  },
+  "author": "Tiago Gomes",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Shamoleambo/image-post/issues"
+  },
+  "homepage": "https://github.com/Shamoleambo/image-post#readme"
+}

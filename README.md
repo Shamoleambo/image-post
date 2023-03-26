@@ -1,1 +1,1 @@
-# An app that runs on node and render simple image posts
+# PicUp - Server side app that an user can create an image post
