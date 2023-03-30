@@ -38,14 +38,19 @@ app.get('/post', (req, res) => {
   res.render('create-post', { pageTitle: 'New Post', newPost: true })
 })
 
-app.post('/post', (req, res) => {
-  const { title, image, description } = req.body
+app.post('/post', async (req, res) => {
+  const { title, image: imageUrl, description } = req.body
   console.log('title', title)
-  console.log('image', image)
+  console.log('image', imageUrl)
   console.log('description', description)
+
+  const newPost = new Post({ title, imageUrl, description })
+
+  await newPost.save()
   res.status(201).render('home', { pageTitle: 'Home', title: 'Home Page' })
 })
 
-app.listen(3000, () => {
+app.listen(3000, async () => {
   console.log('App is running')
+  await mongoose.connect(process.env.DB_CONN)
 })
