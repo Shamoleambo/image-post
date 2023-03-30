@@ -33,6 +33,14 @@ app.get('/post', (req, res) => {
   res.render('create-post', { pageTitle: 'New Post', newPost: true })
 })
 
+app.post('/post', (req, res) => {
+  const { title, image, description } = req.body
+  console.log('title', title)
+  console.log('image', image)
+  console.log('description', description)
+  res.status(201).render('home', { pageTitle: 'Home', title: 'Home Page' })
+})
+
 app.listen(3000, () => {
   console.log('App is running')
 })
