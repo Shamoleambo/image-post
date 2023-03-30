@@ -22,6 +22,10 @@ app.get('/register', (req, res) => {
   })
 })
 
+app.get('/login', (req, res) => {
+  res.render('login', { title: 'Login', pageTitle: 'Login', login: true })
+})
+
 app.listen(3000, () => {
   console.log('App is running')
 })
