@@ -4,7 +4,8 @@
   "description": "Server side app that to create image posts",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js",
+    "dev": "nodemon app.js"
   },
   "repository": {
     "type": "git",
@@ -22,6 +23,7 @@
     "mongoose": "^7.0.3"
   },
   "devDependencies": {
-    "eslint": "^8.37.0"
+    "eslint": "^8.37.0",
+    "nodemon": "^2.0.22"
   }
 }
