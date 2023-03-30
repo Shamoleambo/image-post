@@ -1,9 +1,14 @@
 const path = require('path')
 const express = require('express')
 const bodyParser = require('body-parser')
+const dotenv = require('dotenv')
+const mongoose = require('mongoose')
 const { engine } = require('express-handlebars')
 
+const Post = require('./model/Post')
+
 const app = express()
+dotenv.config()
 
 app.engine('hbs', engine({ extname: 'hbs' }))
 app.set('view engine', 'hbs')
