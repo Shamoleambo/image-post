@@ -15,7 +15,11 @@ app.get('/', (req, res) => {
 })
 
 app.get('/register', (req, res) => {
-  res.render('register', { title: 'Register', pageTitle: 'Register' })
+  res.render('register', {
+    title: 'Register',
+    pageTitle: 'Register',
+    register: true
+  })
 })
 
 app.listen(3000, () => {
