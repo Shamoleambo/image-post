@@ -11,7 +11,7 @@ app.set('views', './views')
 app.use(express.static(path.join(__dirname, '/public')))
 
 app.get('/', (req, res) => {
-  res.render('home', { pageTitle: 'Home' })
+  res.render('home', { pageTitle: 'Home', title: 'Home Page' })
 })
 
 app.get('/register', (req, res) => {
@@ -24,6 +24,10 @@ app.get('/register', (req, res) => {
 
 app.get('/login', (req, res) => {
   res.render('login', { title: 'Login', pageTitle: 'Login', login: true })
+})
+
+app.get('/post', (req, res) => {
+  res.render('create-post', { pageTitle: 'New Post', newPost: true })
 })
 
 app.listen(3000, () => {
