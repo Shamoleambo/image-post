@@ -1,0 +1,33 @@
+body {
+  margin: 0;
+}
+
+header {
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  height: 10%;
+  background-color: #b0f1ff;
+  font-size: 1.2rem;
+}
+
+header nav {
+  width: 100%;
+}
+
+nav ul {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-content: center;
+}
+
+ul li {
+  list-style: none;
+}
+
+a:link,
+a:visited {
+  text-decoration: none;
+  color: black;
+}
