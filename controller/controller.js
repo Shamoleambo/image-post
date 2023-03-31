@@ -1,7 +1,8 @@
 const Post = require('../model/Post')
 
-exports.getHomePage = (req, res) => {
-  res.render('home', { pageTitle: 'Home', title: 'Home Page' })
+exports.getHomePage = async (req, res) => {
+  const posts = await Post.find({}).lean()
+  res.render('home', { pageTitle: 'Home', title: 'Home Page', posts })
 }
 
 exports.getRegisterPage = (req, res) => {
@@ -25,6 +26,9 @@ exports.createNewPost = async (req, res) => {
 
   const newPost = new Post({ title, imageUrl, description })
 
+  const posts = await Post.find({}).lean()
   await newPost.save()
-  res.status(201).render('home', { pageTitle: 'Home', title: 'Home Page' })
+  res
+    .status(201)
+    .render('home', { pageTitle: 'Home', title: 'Home Page', posts })
 }
