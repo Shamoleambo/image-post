@@ -40,14 +40,15 @@ app.get('/post', (req, res) => {
 
 app.post('/post', async (req, res) => {
   const { title, image: imageUrl, description } = req.body
-  console.log('title', title)
-  console.log('image', imageUrl)
-  console.log('description', description)
 
   const newPost = new Post({ title, imageUrl, description })
 
   await newPost.save()
   res.status(201).render('home', { pageTitle: 'Home', title: 'Home Page' })
+})
+
+app.use('/', (req, res) => {
+  res.status(404).render('errorPage', { pageTitle: '404' })
 })
 
 app.listen(3000, async () => {
