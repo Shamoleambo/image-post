@@ -1,35 +1,16 @@
 const express = require('express')
 const router = express.Router()
 
-const Post = require('../model/Post')
+const controller = require('../controller/controller')
 
-router.get('/', (req, res) => {
-  res.render('home', { pageTitle: 'Home', title: 'Home Page' })
-})
+router.get('/', controller.getHomePage)
 
-router.get('/register', (req, res) => {
-  res.render('register', {
-    title: 'Register',
-    pageTitle: 'Register',
-    register: true
-  })
-})
+router.get('/register', controller.getRegisterPage)
 
-router.get('/login', (req, res) => {
-  res.render('login', { title: 'Login', pageTitle: 'Login', login: true })
-})
+router.get('/login', controller.getLoginPage)
 
-router.get('/post', (req, res) => {
-  res.render('create-post', { pageTitle: 'New Post', newPost: true })
-})
+router.get('/post', controller.getCreatePostPage)
 
-router.post('/post', async (req, res) => {
-  const { title, image: imageUrl, description } = req.body
-
-  const newPost = new Post({ title, imageUrl, description })
-
-  await newPost.save()
-  res.status(201).render('home', { pageTitle: 'Home', title: 'Home Page' })
-})
+router.post('/post', controller.createNewPost)
 
 module.exports = router
